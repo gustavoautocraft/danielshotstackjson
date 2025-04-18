@@ -47,7 +47,7 @@ The `timeline` object orchestrates the entire visual composition of the video.
 
 2.  **`tracks` (Array of Objects):**
     *   **Purpose:** Contains the individual layers of the video. Tracks are stacked visually, similar to layers in image editing software.
-    *   **Stacking Order:** Tracks are rendered from the bottom up. The first track in the array (`tracks[0]`) is the bottom-most layer, and the last track is the top-most layer. Elements in higher tracks will appear *on top of* elements in lower tracks if they occupy the same space and time.
+    *   **Stacking Order:** Tracks are rendered starting with the top layer. The first track in the array (`tracks[0]`) is the **top-most layer**, the second track (`tracks[1]`) is rendered directly below the first, and so on down to the last track in the array, which forms the bottom-most layer (closest to the `timeline.background`). Elements in tracks with lower indices (e.g., `tracks[0]`) will appear *on top of* elements in tracks with higher indices (e.g., `tracks[1]`) if they occupy the same space and time on the canvas.
     *   **Content:** Each object within the `tracks` array represents a single track and contains a `clips` array.
 
 ---
